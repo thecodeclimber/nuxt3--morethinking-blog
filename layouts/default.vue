@@ -1,8 +1,11 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Popover class="relative bg-white">
+  <Popover
+    as="header"
+    class="border-gray-00 relative border-b border-gray-200 bg-gray-50"
+  >
     <div
-      class="flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start md:space-x-10"
+      class="flex items-center justify-between px-4 py-4 sm:px-6 md:justify-start md:space-x-10"
     >
       <NavbarLogo />
       <NavbarMobileOpenMenu />
@@ -29,6 +32,7 @@
       </div>
     </NavbarMobileNav>
   </Popover>
+
   <slot />
 </template>
 
