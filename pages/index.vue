@@ -1,31 +1,25 @@
 <template>
-  <NuxtLayout />
   <div
     class="relative mx-auto max-w-lg divide-y-2 divide-gray-200 lg:max-w-7xl"
   >
-    <div class="bg-white px-4 pt-16 pb-10 sm:px-6 lg:px-8 lg:pt-24 lg:pb-14">
+    <div class="px-4 pt-4 pb-10 sm:px-6 lg:px-8 lg:pt-6 lg:pb-14">
       <div
         class="relative mx-auto max-w-lg divide-y-2 divide-gray-200 lg:max-w-7xl"
       >
-        <div>
-          <h2
-            class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+        <div class="grid gap-16 pt-10 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
+          <div
+            class="bg-white p-12 shadow-xl"
+            v-for="post in posts"
+            :key="post.title"
           >
-            Latest Posts
-          </h2>
-        </div>
-        <div
-          class="mt-6 grid gap-16 pt-10 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12"
-        >
-          <div v-for="post in posts" :key="post.title">
             <p class="text-sm text-gray-500">
               <time :datetime="post.datetime">{{ post.date }}</time>
             </p>
             <a href="#" class="mt-2 block">
-              <p class="text-xl font-semibold text-gray-900">
+              <p class="text-3xl font-bold text-gray-900">
                 {{ post.title }}
               </p>
-              <p class="mt-3 text-base text-gray-500">
+              <p class="mt-4 mb-8 text-base text-gray-500">
                 {{ post.description }}
               </p>
             </a>
@@ -41,33 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="bg-white px-4 pb-20 sm:px-6 lg:px-8 lg:pb-28">
-      <div class="mt-6 grid gap-16 pt-10 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
-        <div v-for="post in posts" :key="post.title">
-          <p class="text-sm text-gray-500">
-            <time :datetime="post.datetime">{{ post.date }}</time>
-          </p>
-          <a href="#" class="mt-2 block">
-            <p class="text-xl font-semibold text-gray-900">
-              {{ post.title }}
-            </p>
-            <p class="mt-3 text-base text-gray-500">
-              {{ post.description }}
-            </p>
-          </a>
-          <div class="mt-3">
-            <a
-              :href="post.href"
-              class="text-base font-semibold text-indigo-600 hover:text-indigo-500"
-            >
-              Read full story
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-  <ContentDoc />
 </template>
 
 <script setup>
